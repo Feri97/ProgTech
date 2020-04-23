@@ -2,8 +2,7 @@
 ### Az alkalmazás
 
 Egy olyan gépjármű összerakó alkalmazás amelyel a Tesla weboldalán is találkozhatunk, ami használhatóságban, megjelenésben és funkcióit tekintve ennek, egy leegyszerűsített asztali alkalmazás változata lesz. Az alkalmazásban lehetőség lesz megválasztani az autó színét, felniméretet, ülésfűtést és egyébb extrákat hozzáadni 
-ami segitségével a felhasználó igényeinek pontosan megfelelő kocsit rendelhet. Az alkalmazás első verziója nem rendelkezik majd grafikus felülettel, de amennyiben a munka megfelelő sebességgel halad grafikus kezelőfelület is lesz egy illusztrációval a gépjárműről(itt nem egy 3d modellre gondolok bár azzal lenne a legszebb).
-Az egyes plusz felszereltségek díszítő osztályokkal kerülnének a járműre. Az alkalmazás GOF2, SRP és OCP alapelvek felhasználásával készül.
+ami segitségével a felhasználó igényeinek pontosan megfelelő kocsit rendelhet. Az alkalmazás első verziója nem rendelkezik majd grafikus felülettel, de amennyiben a munka megfelelő sebességgel halad grafikus kezelőfelület is lesz egy illusztrációval a gépjárműről. Az egyes plusz felszereltségek díszítő osztályokkal kerülnének a járműre. Az alkalmazás GOF2, SRP és OCP alapelvek felhasználásával készül. Observer tervezési minta felhasználásával működne az extrák hozzáadása ami csak a véglegesítéskor készítené össze a megrendelést. A megrendelésekről log bejegyzés készülne Singletonnal.
 
 ### Tesztelés
 
