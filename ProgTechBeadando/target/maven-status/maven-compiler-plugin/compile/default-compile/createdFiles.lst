@@ -1,0 +1,12 @@
+CarAssembly\Decorators\WeightReduction.class
+CarAssembly\Edition.class
+CarAssembly\Decorators\Hp.class
+CarAssembly\FamilyEdition.class
+CarAssembly\CarBase.class
+CarAssembly\SportsPlusEdition.class
+CarAssembly\SportsEdition.class
+CarAssembly\EditionFactory.class
+CarAssembly\Decorators\HeatedSeat.class
+CarAssembly\Decorators\Clime.class
+CarAssembly\Decorators\Rims.class
+CarAssembly\SportPlusFactory.class
