@@ -5,6 +5,11 @@
  */
 package CarAssembly;
 
+import CarAssembly.Factory.SportPlusFactory;
+import CarAssembly.Factory.Edition;
+import CarAssembly.Factory.FamilyFactory;
+import CarAssembly.Factory.EditionFactory;
+import CarAssembly.Factory.SportFactory;
 import javax.swing.JLabel;
 
 /**
