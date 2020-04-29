@@ -35,6 +35,6 @@ public class Hp extends Extra{
         }
         @Override
         public int getPrice(){
-            return (int)(super.getPrice() * 1.3);
+            return (int)(super.getPrice() + hp * 10);
         }
 }

@@ -31,7 +31,7 @@ public class WeightReduction extends Extra{
         
         @Override
         public int getPrice(){
-            return (int)(super.getPrice() * 1.1);
+            return (int)(super.getPrice() + amount * 10);
         }
         
 }

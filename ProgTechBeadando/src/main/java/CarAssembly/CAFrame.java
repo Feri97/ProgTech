@@ -13,9 +13,12 @@ import javax.swing.JLabel;
  */
 public class CAFrame extends javax.swing.JFrame {
 
+    Logger log = Logger.getInstance();
     private CarBase car;
     
     EditionFactory sport = new SportFactory();
+    
+    EditionFactory sportPlus = new SportPlusFactory();
     
     EditionFactory family = new FamilyFactory();
     
@@ -70,7 +73,7 @@ public class CAFrame extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Sport", "Family" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Sport", "Sport Plus", "Family" }));
         jComboBox2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox2ItemStateChanged(evt);
@@ -158,7 +161,6 @@ public class CAFrame extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        Logger log = Logger.getInstance();
         log.logSuccess(car.print(),car.getPrice());
         
     }//GEN-LAST:event_jButton1MouseClicked
@@ -170,14 +172,20 @@ public class CAFrame extends javax.swing.JFrame {
         }
         if(jComboBox2.getSelectedIndex() == 1)
         {      
-            Edition Minosites = sport.CreateClassification();
-            car = Minosites.Create(car);
+            Edition classification = sport.CreateClassification();
+            car = classification.Create(car);
             Details(car);
         }
         if(jComboBox2.getSelectedIndex() == 2)
         {      
-            Edition Minosites = family.CreateClassification();
-            car = Minosites.Create(car);
+            Edition classification = sportPlus.CreateClassification();
+            car = classification.Create(car);
+            Details(car);
+        }
+        if(jComboBox2.getSelectedIndex() == 3)
+        {      
+            Edition classification = family.CreateClassification();
+            car = classification.Create(car);
             Details(car);
         }
         jLabel3.setText(car.print());
