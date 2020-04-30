@@ -3,7 +3,9 @@ CarAssembly\Factory\SportPlusFactory.class
 CarAssembly\Factory\SportsPlusEdition.class
 CarAssembly\Factory\FamilyEdition.class
 CarAssembly\Factory\FamilyFactory.class
+CarAssembly\OrderFrame$1.class
 CarAssembly\Decorators\Hp.class
+CarAssembly\OrderFrame.class
 CarAssembly\Factory\SportFactory.class
 CarAssembly\CarBase.class
 CarAssembly\Factory\EditionFactory.class
