@@ -20,7 +20,7 @@ public class HeatedSeat extends Extra{
         
 	@Override
 	public String printExtra() { 
-		return " Heated Seat";
+		return "Heated Seat";
 	}
 
         @Override

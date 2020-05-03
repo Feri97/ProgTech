@@ -71,6 +71,7 @@ public class CAFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(550, 300));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose a car...", "Opel", "Nissan", "BMW" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
@@ -86,7 +87,7 @@ public class CAFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("OK");
+        jButton1.setText("Next");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -181,7 +182,7 @@ public class CAFrame extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        log.logSuccess(car.print(),car.getPrice());
+        //log.logOrder(car.print(),car.getPrice());
         
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -272,7 +273,7 @@ public class CAFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        OrderFrame order = new OrderFrame();
+        OrderFrame order = new OrderFrame(car);
         order.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

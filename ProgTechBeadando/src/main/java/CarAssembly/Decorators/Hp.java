@@ -21,7 +21,7 @@ public class Hp extends Extra{
         
 	@Override
 	public String printExtra() { 
-		return " Extra HP: " + hp;
+		return "Extra HP: " + hp;
 	}
 
         @Override

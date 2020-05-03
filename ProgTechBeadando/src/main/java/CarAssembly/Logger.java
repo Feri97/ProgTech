@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 public class Logger {
     private static Logger logger = null;
     
-    private int orderid = 0;
+    private int orderid = 1;
     
     public static synchronized Logger getInstance(){
     if(logger == null)
@@ -26,18 +26,27 @@ public class Logger {
     
     private final String logFile = "log.txt";
     private PrintWriter writer;
+    private PrintWriter procurers;
     private Logger() {
         try {
             FileWriter fw = new FileWriter(logFile, true);
             writer = new PrintWriter(fw, true);
+            FileWriter fwp = new FileWriter("orders.txt", true);
+            procurers = new PrintWriter(fwp, true);
         }
         catch (IOException e) {
             
         }
     }
-    public void logSuccess (String car, int price) {
+    public void logOrder (String car, int price, String firstname, String lastname, String email) {
         orderid++;
-        writer.println("New order (" + car + ")"+" price: " + price + "$");
+        writer.println(orderid + " New order (" + car + ")"+" price: " + price + "$");
+        procurers.println(orderid + " Firstname: " + firstname + " Lastname: " + lastname + " E-mail: " + email);
+    }
+    public void logOrderPartialPay (String car, int price, int parts, String firstname, String lastname, String email) {
+        orderid++;
+        writer.println(orderid + " New order (" + car + ")"+" price: " + price + "$" + " for: " + parts + " months");
+        procurers.println(orderid + " Firstname: " + firstname + " Lastname: " + lastname + " E-mail: " + email);
     }
     public void logFailure (String order) {
         writer.println("Failed attempt (" + order + ")");

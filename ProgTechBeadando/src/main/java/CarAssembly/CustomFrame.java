@@ -5,6 +5,12 @@
  */
 package CarAssembly;
 
+import CarAssembly.Decorators.Clime;
+import CarAssembly.Decorators.HeatedSeat;
+import CarAssembly.Decorators.Hp;
+import CarAssembly.Decorators.Rims;
+import CarAssembly.Decorators.WeightReduction;
+
 /**
  *
  * @author Feri
@@ -40,24 +46,23 @@ public class CustomFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxCar = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        jCheckBoxClime = new javax.swing.JCheckBox();
+        jCheckBoxHp = new javax.swing.JCheckBox();
+        jCheckBoxWeight = new javax.swing.JCheckBox();
+        jCheckBoxRims = new javax.swing.JCheckBox();
+        jCheckBoxHeatedSeat = new javax.swing.JCheckBox();
+        jButtonOrder = new javax.swing.JButton();
+        jButtonHome = new javax.swing.JButton();
+        jComboBoxHp = new javax.swing.JComboBox<>();
+        jComboBoxWeight = new javax.swing.JComboBox<>();
+        jComboBoxRims = new javax.swing.JComboBox<>();
+        jLabelCar = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabelHp = new javax.swing.JLabel();
         jLabelWeight = new javax.swing.JLabel();
-        jLabelRims = new javax.swing.JLabel();
         jLabelFuel = new javax.swing.JLabel();
         jLabelCc = new javax.swing.JLabel();
         jLabelDoors = new javax.swing.JLabel();
@@ -66,11 +71,12 @@ public class CustomFrame extends javax.swing.JFrame {
         jLabelPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(550, 300));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Opel", "Nissan", "BMW" }));
-        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+        jComboBoxCar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Opel", "Nissan", "BMW" }));
+        jComboBoxCar.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                jComboBoxCarItemStateChanged(evt);
             }
         });
 
@@ -78,45 +84,58 @@ public class CustomFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Car:");
 
-        jCheckBox5.setText("Clime");
+        jCheckBoxClime.setText("Clime");
 
-        jCheckBox6.setText("HP");
+        jCheckBoxHp.setText("HP");
 
-        jCheckBox8.setText("kg");
+        jCheckBoxWeight.setText("kg");
 
-        jCheckBox9.setText("col");
+        jCheckBoxRims.setText("col");
 
-        jCheckBox10.setText("Heated seat");
+        jCheckBoxHeatedSeat.setText("Heated seat");
 
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonOrder.setText("Next");
+        jButtonOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonOrderActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonHome.setText("Back");
+        jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonHomeActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "50", "100", "150" }));
+        jComboBoxHp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "50", "100", "150" }));
+        jComboBoxHp.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxHpItemStateChanged(evt);
+            }
+        });
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "30", "90", "160" }));
+        jComboBoxWeight.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "30", "90", "160" }));
+        jComboBoxWeight.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxWeightItemStateChanged(evt);
+            }
+        });
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "16", "17", "18", "19" }));
+        jComboBoxRims.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "16", "17", "18", "19" }));
+        jComboBoxRims.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxRimsItemStateChanged(evt);
+            }
+        });
 
-        jLabel3.setText("-");
+        jLabelCar.setText("-");
 
         jLabel4.setText("Details:");
 
         jLabelHp.setText("HP:");
 
         jLabelWeight.setText("Weight:");
-
-        jLabelRims.setText("Rims size:");
 
         jLabelFuel.setText("Fuel:");
 
@@ -138,48 +157,46 @@ public class CustomFrame extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(jLabelCar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxCar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox5)
+                                    .addComponent(jLabelShift, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBoxClime)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel1)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jComboBoxHp, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jComboBoxWeight, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jComboBoxRims, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jCheckBox9, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jCheckBox8))
-                                            .addComponent(jCheckBox6)))
-                                    .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jCheckBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(jCheckBoxRims, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jCheckBoxWeight))
+                                            .addComponent(jCheckBoxHp)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabelPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jCheckBoxHeatedSeat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)))))
                         .addGap(61, 61, 61))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelShift, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelDoors, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(91, 91, 91)
-                                .addComponent(jLabelSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelFuel)
+                            .addComponent(jButtonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelDoors, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelCc)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
                             .addComponent(jLabelHp)
                             .addComponent(jLabelWeight)
-                            .addComponent(jLabelRims))
-                        .addContainerGap(265, Short.MAX_VALUE))))
+                            .addComponent(jLabelFuel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(352, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,9 +204,9 @@ public class CustomFrame extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(jLabelCar)
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -197,45 +214,42 @@ public class CustomFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckBox6)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCheckBoxHp)
+                        .addComponent(jComboBoxHp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelHp, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxWeight)
+                    .addComponent(jComboBoxWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelWeight))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox9)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRims))
+                    .addComponent(jCheckBoxRims)
+                    .addComponent(jComboBoxRims, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelShift))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox10)
+                    .addComponent(jCheckBoxHeatedSeat)
                     .addComponent(jLabelFuel))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox5)
+                    .addComponent(jCheckBoxClime)
                     .addComponent(jLabelCc))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDoors)
-                    .addComponent(jLabelSeats))
+                .addComponent(jLabelDoors)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelShift)
-                    .addComponent(jLabelPrice))
+                    .addComponent(jLabelPrice)
+                    .addComponent(jLabelSeats))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(jButtonHome)
+                    .addComponent(jButtonOrder))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jLabelHp.getAccessibleContext().setAccessibleName("jLabelHp");
         jLabelWeight.getAccessibleContext().setAccessibleName("jLabelWeight");
-        jLabelRims.getAccessibleContext().setAccessibleName("jLabelRims");
         jLabelFuel.getAccessibleContext().setAccessibleName("jLabelFuel");
         jLabelCc.getAccessibleContext().setAccessibleName("jLabelCc");
         jLabelDoors.getAccessibleContext().setAccessibleName("jLabelDoors");
@@ -246,53 +260,88 @@ public class CustomFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+    private void jComboBoxCarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCarItemStateChanged
         // TODO add your handling code here:
         if (evt.getStateChange() == evt.SELECTED) {
         //Do any operations you need to do when an item is selected.
     
-        if(jComboBox1.getSelectedIndex() == 0)
+        if(jComboBoxCar.getSelectedIndex() == 0)
         {   
             //car = new Car("Nissan","Silvia", "Manual", 1, 2, 4, 12, 1, "Gasoline");
             //String Brand, String model, String shift, int doors, int hp, int cc, int weight, int seats, String fuel, int Price
         }
-        if(jComboBox1.getSelectedIndex() == 1)
+        if(jComboBoxCar.getSelectedIndex() == 1)
         {
             car = new Car("Opel","Astra", "Manual", 5, 95, 1600, 1400, 5, "Gasoline", 5000);
             Details(car);
         }
-        if(jComboBox1.getSelectedIndex() == 2)
+        if(jComboBoxCar.getSelectedIndex() == 2)
         {
             car = new Car("Nissan","Skyline GT-R", "Manual", 3, 320, 3000, 1600, 2, "Gasoline", 60000);
             Details(car);
         }
-        if(jComboBox1.getSelectedIndex() == 3)
+        if(jComboBoxCar.getSelectedIndex() == 3)
         {
             car = new Car("BMW","M3 E36", "Manual", 3, 240, 2500, 1500, 4, "Gasoline", 10000);
             Details(car);
             
         }
-        jLabel3.setText(car.print());
+        jLabelCar.setText(car.print());
         } 
         else if(evt.getStateChange() == evt.DESELECTED){
-            jComboBox2.setSelectedIndex(0);
+            jComboBoxHp.setSelectedIndex(0);
+            jComboBoxWeight.setSelectedIndex(0);
+            jComboBoxRims.setSelectedIndex(0);
         }
         
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+    }//GEN-LAST:event_jComboBoxCarItemStateChanged
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         // TODO add your handling code here:
         HomeFrame home = new HomeFrame();
         home.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonHomeActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrderActionPerformed
         // TODO add your handling code here:
-        OrderFrame order = new OrderFrame();
+        if(jCheckBoxHp.isSelected()){
+            car = new Hp(car, Integer.parseInt(jComboBoxHp.getItemAt(jComboBoxHp.getSelectedIndex())));
+        }
+        if(jCheckBoxWeight.isSelected()){
+            car = new WeightReduction(car, Integer.parseInt(jComboBoxWeight.getItemAt(jComboBoxWeight.getSelectedIndex())));
+        }
+        if(jCheckBoxRims.isSelected()){
+            car = new Rims(car, Integer.parseInt(jComboBoxRims.getItemAt(jComboBoxRims.getSelectedIndex())));
+        }
+        if(jCheckBoxHeatedSeat.isSelected()){
+            car = new HeatedSeat(car);
+        }
+        if(jCheckBoxClime.isSelected()){
+            car = new Clime(car);
+        }
+        //log.logOrder(car.print(), car.getPrice());
+        
+        OrderFrame order = new OrderFrame(car);
         order.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonOrderActionPerformed
+
+    private void jComboBoxHpItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxHpItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBoxHpItemStateChanged
+
+    private void jComboBoxWeightItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxWeightItemStateChanged
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jComboBoxWeightItemStateChanged
+
+    private void jComboBoxRimsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxRimsItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBoxRimsItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -333,27 +382,26 @@ public class CustomFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JButton jButtonHome;
+    private javax.swing.JButton jButtonOrder;
+    private javax.swing.JCheckBox jCheckBoxClime;
+    private javax.swing.JCheckBox jCheckBoxHeatedSeat;
+    private javax.swing.JCheckBox jCheckBoxHp;
+    private javax.swing.JCheckBox jCheckBoxRims;
+    private javax.swing.JCheckBox jCheckBoxWeight;
+    private javax.swing.JComboBox<String> jComboBoxCar;
+    private javax.swing.JComboBox<String> jComboBoxHp;
+    private javax.swing.JComboBox<String> jComboBoxRims;
+    private javax.swing.JComboBox<String> jComboBoxWeight;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelCar;
     private javax.swing.JLabel jLabelCc;
     private javax.swing.JLabel jLabelDoors;
     private javax.swing.JLabel jLabelFuel;
     private javax.swing.JLabel jLabelHp;
     private javax.swing.JLabel jLabelPrice;
-    private javax.swing.JLabel jLabelRims;
     private javax.swing.JLabel jLabelSeats;
     private javax.swing.JLabel jLabelShift;
     private javax.swing.JLabel jLabelWeight;

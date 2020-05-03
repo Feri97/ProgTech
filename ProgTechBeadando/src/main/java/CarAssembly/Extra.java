@@ -59,7 +59,7 @@ abstract public class Extra extends CarBase{
 	
         @Override
 	public String print() {
-		return car.print() + printExtra();
+		return car.print() + " + " + printExtra();
 	}
     
 }

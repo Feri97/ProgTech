@@ -19,7 +19,7 @@ public class Clime extends Extra{
         
 	@Override
 	public String printExtra() { 
-		return " Climated";
+		return "Climated";
 	}
 
         @Override

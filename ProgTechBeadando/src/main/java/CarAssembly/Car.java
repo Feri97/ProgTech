@@ -18,7 +18,8 @@ public class Car extends CarBase {
     private int price;
     
     Random rnd = new Random();
-    
+    int low = 100000;
+    int high = 999999;
     
     public Car(String Brand, String model, String shift, int doors, int hp, int cc, int weight, int seats, String fuel, int price) {
         this.Brand = Brand;
@@ -27,8 +28,7 @@ public class Car extends CarBase {
         this.doors = doors;
         this.hp = hp;
         this.cc = cc;
-        rnd.nextInt(99999);
-        this.vin = rnd.hashCode();
+        this.vin = rnd.nextInt(high-low) + low;
         this.weight = weight;
         this.seats = seats;
         this.fuel = fuel;

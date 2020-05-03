@@ -21,7 +21,7 @@ public class WeightReduction extends Extra{
         
 	@Override
 	public String printExtra() { 
-		return " Weight: " + (super.getWeight()-amount);
+		return "Weight: " + (super.getWeight()-amount);
 	}
 
         @Override

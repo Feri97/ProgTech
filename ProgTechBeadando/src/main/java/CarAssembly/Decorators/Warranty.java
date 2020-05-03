@@ -12,21 +12,20 @@ import CarAssembly.Extra;
  *
  * @author Feri
  */
-public class Rims extends Extra{
-    private int size;
-	public Rims(CarBase car, int size) {
-            super(car);
-            this.size = size;
+public class Warranty extends Extra{
+        int warranty;
+	public Warranty(CarBase car, int warranty) {
+            super(car); 
+            this.warranty = warranty;
         }
         
 	@Override
 	public String printExtra() { 
-		return "Rims size: " + size;
+		return warranty + " years warranty";
 	}
 
         @Override
         public int getPrice(){
-            return (int)(super.getPrice() + size * 100);
+            return (int)(super.getPrice() + warranty * 1000);
         }
-    
 }
