@@ -201,6 +201,9 @@ public class OrderFrame extends javax.swing.JFrame {
             pp.MakeOrder();
         }
         
+        HomeFrame home = new HomeFrame();
+        home.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

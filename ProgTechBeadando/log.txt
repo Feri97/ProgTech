@@ -1,1 +1,11 @@
 2 New order (BMW M3 E36 VIN(494551) + Rims size: 18 + Extra HP: 200 + Weight: 1300 + 2 years warranty) price: 15800$
+2 New order (Nissan Skyline GT-R VIN(429267) + Rims size: 18 + Extra HP: 200 + Weight: 1400 + 2 years warranty) price: 2961$ for: 24 months
+3 New order (Opel Astra VIN(173913) + Heated Seat + Climated + 1 years warranty) price: 261$ for: 24 months
+2 New order (BMW M3 E36 VIN(617652)) price: 10000$ for: 12 months
+2 New order (BMW M3 E36 VIN(627933)) price: 10000$ for: 12 months
+3 New order (BMW M3 E36 VIN(250604)) price: 10000$
+2 New order (BMW M3 E36 VIN(986657)) price: 10000$ for: 12 months
+3 New order (BMW M3 E36 VIN(180323)) price: 10000$
+2 New order (BMW M3 E36 VIN(145715)) price: 10000$ for: 12 months
+3 New order (BMW M3 E36 VIN(228711)) price: 10000$
+Failed attempt (1651 New order (BMW M3 E36 VIN(768450)) price: 10000$)
