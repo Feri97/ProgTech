@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="CarAssembly.CarTest" time="0.035" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="CarAssembly.CarTest" time="0.071" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="13.0.2+8"/>
@@ -58,14 +58,16 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testPrint" time="0.035"/>
-  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetDoors" time="0"/>
-  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetCc" time="0"/>
+  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetWeight" time="0.014"/>
+  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetSeats" time="0.026"/>
+  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetCc" time="0.001"/>
+  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetWeightNeg" time="0"/>
+  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testIstance" time="0"/>
+  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testPrint" time="0.029"/>
+  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetVin" time="0.001"/>
   <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetShift" time="0"/>
+  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetDoors" time="0"/>
   <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetHp" time="0"/>
-  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetSeats" time="0"/>
-  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetVin" time="0"/>
-  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetWeight" time="0"/>
-  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetFuel" time="0"/>
   <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetPrice" time="0"/>
+  <testcase classname="CarAssembly.CarTest" name="CarAssembly.CarTest.testGetFuel" time="0"/>
 </testsuite>

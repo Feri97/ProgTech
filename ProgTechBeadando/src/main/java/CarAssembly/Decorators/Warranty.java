@@ -6,6 +6,7 @@
 package CarAssembly.Decorators;
 
 import CarAssembly.CarBase;
+import CarAssembly.Exceptions.NegativeException;
 import CarAssembly.Extra;
 
 /**
@@ -14,8 +15,11 @@ import CarAssembly.Extra;
  */
 public class Warranty extends Extra{
         int warranty;
-	public Warranty(CarBase car, int warranty) {
+	public Warranty(CarBase car, int warranty) throws NegativeException {
             super(car); 
+            if(warranty <= 0){
+                throw new NegativeException("Warranty must be a positive number");
+            }
             this.warranty = warranty;
         }
         

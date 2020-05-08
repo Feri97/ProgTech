@@ -6,6 +6,7 @@
 package CarAssembly.Template;
 
 import CarAssembly.CarBase;
+import java.io.IOException;
 
 /**
  *
@@ -29,8 +30,12 @@ public class LumpSum extends Order{
     }
 
     @Override
-    protected void log() {
-        log.logOrder(car.print(), price, firstname, lastname, email);
+    protected void log(){
+        try {
+            log.logOrder(car.print(), price, firstname, lastname, email);
+        } catch (Exception e) {
+            log.logFailure(car.print() + price + firstname + lastname + email, e.getMessage());
+        }
     }
 
     

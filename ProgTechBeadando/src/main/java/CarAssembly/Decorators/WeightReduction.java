@@ -6,6 +6,7 @@
 package CarAssembly.Decorators;
 
 import CarAssembly.CarBase;
+import CarAssembly.Exceptions.NegativeException;
 import CarAssembly.Extra;
 
 /**
@@ -14,8 +15,14 @@ import CarAssembly.Extra;
  */
 public class WeightReduction extends Extra{
     private int amount;
-	public WeightReduction(CarBase car, int amount) {
+	public WeightReduction(CarBase car, int amount) throws NegativeException {
             super(car);
+            if(amount <= 0){
+                throw new NegativeException("The amount of weight must be a positive number");
+            }
+            if ((car.getWeight() - amount)<=0) {
+                throw new NegativeException("The amount of weight must remain a positive number");
+            }
             this.amount = amount;
         }
         

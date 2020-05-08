@@ -9,6 +9,9 @@ import CarAssembly.CarBase;
 import CarAssembly.Decorators.Hp;
 import CarAssembly.Decorators.Rims;
 import CarAssembly.Decorators.WeightReduction;
+import CarAssembly.Exceptions.NegativeException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,6 +28,11 @@ class SportsPlusEdition implements Edition
 {
     @Override
     public CarBase Create(CarBase car) { 
-        return new WeightReduction(new Hp(new Rims(car, 18), 200), 200);
+        try {
+            return new WeightReduction(new Hp(new Rims(car, 18), 200), 200);
+        } catch (NegativeException ex) {
+            Logger.getLogger(SportsPlusEdition.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 }

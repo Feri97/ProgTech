@@ -6,6 +6,7 @@
 package CarAssembly.Decorators;
 
 import CarAssembly.CarBase;
+import CarAssembly.Exceptions.NegativeException;
 import CarAssembly.Extra;
 
 /**
@@ -14,8 +15,11 @@ import CarAssembly.Extra;
  */
 public class Hp extends Extra{
     private int hp;
-	public Hp(CarBase car, int hp) {
+	public Hp(CarBase car, int hp) throws NegativeException {
             super(car);
+            if(hp <= 0){
+                throw new NegativeException("HP must be a positive number");
+            }
             this.hp = hp;
         }
         

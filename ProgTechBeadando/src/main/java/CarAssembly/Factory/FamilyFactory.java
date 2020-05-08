@@ -8,6 +8,8 @@ package CarAssembly.Factory;
 import CarAssembly.CarBase;
 import CarAssembly.Decorators.Clime;
 import CarAssembly.Decorators.HeatedSeat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,6 +26,11 @@ class FamilyEdition implements Edition
 {
     @Override
     public CarBase Create(CarBase car) { 
-        return new Clime(new HeatedSeat(car));
+        try {
+            return new Clime(new HeatedSeat(car));
+        } catch (Exception e) {
+            Logger.getLogger(FamilyEdition.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
     }
 }

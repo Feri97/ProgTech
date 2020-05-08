@@ -5,6 +5,8 @@
  */
 package CarAssembly;
 
+import CarAssembly.Exceptions.EmptyStringException;
+import CarAssembly.Exceptions.NegativeException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -53,7 +55,8 @@ public class LoggerTest {
      * Test of logOrder method, of class Logger.
      */
     @Test
-    public void testLogOrder() {
+    public void testLogOrder() throws NegativeException, EmptyStringException {
+        
         System.out.println("logOrder");
         Car carInstance = new Car("BMW","M3 E36", "Manual", 3, 240, 2500, 1500, 4, "Gasoline", 10000);
         String car = carInstance.print();
@@ -62,14 +65,14 @@ public class LoggerTest {
         String lastname = "Pelda";
         String email = "p.pali@gmail.com";
         Logger instance = Logger.getInstance();
-        instance.logOrder(car, price, firstname, lastname, email);
+        assertDoesNotThrow( () -> {instance.logOrder(car, price, firstname, lastname, email);});
     }
 
     /**
      * Test of logOrderPartialPay method, of class Logger.
      */
     @Test
-    public void testLogOrderPartialPay() {
+    public void testLogOrderPartialPay() throws NegativeException, EmptyStringException {
         System.out.println("logOrderPartialPay");
         Car carInstance = new Car("BMW","M3 E36", "Manual", 3, 240, 2500, 1500, 4, "Gasoline", 10000);
         String car = carInstance.print();
@@ -79,7 +82,7 @@ public class LoggerTest {
         String lastname = "Pelda";
         String email = "p.pali@gmail.com";
         Logger instance = Logger.getInstance();
-        instance.logOrderPartialPay(car, price, parts, firstname, lastname, email);
+        assertDoesNotThrow( () -> {instance.logOrderPartialPay(car, price, parts, firstname, lastname, email);});
     }
 
     /**
@@ -87,12 +90,17 @@ public class LoggerTest {
      */
     @Test
     public void testLogFailure() {
-        System.out.println("logFailure");
-        Car carInstance = new Car("BMW","M3 E36", "Manual", 3, 240, 2500, 1500, 4, "Gasoline", 10000);
-        int orderid = 1651;
-        String order = orderid + " New order (" + carInstance.print() + ")"+" price: " + carInstance.getPrice() + "$";
-        Logger instance = Logger.getInstance();
-        instance.logFailure(order);
+        try {
+            System.out.println("logFailure");
+            Car carInstance = new Car("BMW","M3 E36", "Manual", 3, 240, 2500, 1500, 4, "Gasoline", 10000);
+            Logger instance = null;
+            instance.logOrder(carInstance.print(), carInstance.getPrice(), "", "", "");
+        } catch (Exception e) {
+            Logger instance = Logger.getInstance();
+            instance.logFailure("" , "<"+e.toString()+">");
+        }
+        
+        
     }
     
 }

@@ -7,7 +7,9 @@ package CarAssembly.Template;
 
 import CarAssembly.CarBase;
 import CarAssembly.Decorators.Warranty;
+import CarAssembly.Exceptions.NegativeException;
 import CarAssembly.Logger;
+import java.util.logging.Level;
 
 /**
  *
@@ -31,7 +33,11 @@ public abstract class Order {
     }
     private void warranty()
     {
-        this.car = new Warranty(car, warranty);
+        try {
+            this.car = new Warranty(car, warranty);
+        } catch (NegativeException ex) {
+            java.util.logging.Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     protected abstract void thm();
     protected abstract void log();

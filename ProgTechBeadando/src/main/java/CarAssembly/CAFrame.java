@@ -5,11 +5,17 @@
  */
 package CarAssembly;
 
+import CarAssembly.Exceptions.EmptyStringException;
+import CarAssembly.Exceptions.NegativeException;
 import CarAssembly.Factory.SportPlusFactory;
 import CarAssembly.Factory.Edition;
 import CarAssembly.Factory.FamilyFactory;
 import CarAssembly.Factory.EditionFactory;
 import CarAssembly.Factory.SportFactory;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.util.logging.Level;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
@@ -17,7 +23,7 @@ import javax.swing.JLabel;
  * @author Feri
  */
 public class CAFrame extends javax.swing.JFrame {
-
+    ImageIcon icon;
     Logger log = Logger.getInstance();
     private CarBase car;
     
@@ -69,11 +75,12 @@ public class CAFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel_Illustration = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(550, 300));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose a car...", "Opel", "Nissan", "BMW" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose a car...", "Mitsubishi Lancer EVO  X", "Nissan Skyline GTR", "Nissan 370 Z", "Subaru Impreza WRX" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
@@ -110,6 +117,8 @@ public class CAFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel_Illustration.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,25 +130,31 @@ public class CAFrame extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, 0, 257, Short.MAX_VALUE)
-                                .addComponent(jLabel1))
-                            .addGap(55, 55, 55)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2)))))
-                .addGap(0, 30, Short.MAX_VALUE))
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, 257, Short.MAX_VALUE)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(jLabel_Illustration, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,18 +172,21 @@ public class CAFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11))
+                    .addComponent(jLabel_Illustration, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -176,6 +194,8 @@ public class CAFrame extends javax.swing.JFrame {
                     .addComponent(jButton2))
                 .addGap(29, 29, 29))
         );
+
+        jLabel_Illustration.getAccessibleContext().setAccessibleName("jLabelIllustration");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -214,17 +234,53 @@ public class CAFrame extends javax.swing.JFrame {
         else if(evt.getStateChange() == evt.DESELECTED){
             if(jComboBox1.getSelectedIndex() == 1)
             {
-                car = new Car("Opel","Astra", "Manual", 5, 95, 1600, 1400, 5, "Gasoline", 5000);
+                try {
+                    car = new Car("Mitsubishi","Lancer EVO X", "Manual", 5, 280, 2000, 1400, 5, "Gasoline", 70000);
+                } catch (NegativeException ex) {
+                    java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (EmptyStringException ex) {
+                    java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 Details(car);
             }
             if(jComboBox1.getSelectedIndex() == 2)
             {
-                car = new Car("Nissan","Skyline GT-R", "Manual", 3, 320, 3000, 1600, 2, "Gasoline", 60000);
+                try {
+                    car = new Car("Nissan","Skyline GT-R", "Manual", 3, 320, 3000, 1600, 2, "Gasoline", 100000);
+                } catch (NegativeException ex) {
+                    java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (EmptyStringException ex) {
+                    java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 Details(car);
             }
             if(jComboBox1.getSelectedIndex() == 3)
             {
-                car = new Car("BMW","M3 E36", "Manual", 3, 240, 2500, 1500, 4, "Gasoline", 10000);
+                try {
+                    car = new Car("Nissan","370 Z", "Manual", 3, 240, 3500, 1500, 2, "Gasoline", 80000);
+                } catch (NegativeException ex) {
+                    java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (EmptyStringException ex) {
+                    java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                /*
+                icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("img/nissan-370z.png")));
+                Image img = icon.getImage();
+                Image img2 = img.getScaledInstance(jLabel_Illustration.getWidth(), jLabel_Illustration.getHeight(), Image.SCALE_SMOOTH);
+                icon = new ImageIcon(img2);
+                jLabel_Illustration.setIcon(icon);
+                */
+                Details(car);
+            }
+            if(jComboBox1.getSelectedIndex() == 4)
+            {
+                try {
+                    car = new Car("Subaru","Impreza WRX", "Manual", 3, 300, 3000, 1500, 4, "Gasoline", 60000);
+                } catch (NegativeException ex) {
+                    java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (EmptyStringException ex) {
+                    java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 Details(car);
             }
         }
@@ -235,23 +291,59 @@ public class CAFrame extends javax.swing.JFrame {
         //Do any operations you need to do when an item is selected.
     
         if(jComboBox1.getSelectedIndex() == 0)
-        {   
-            //car = new Car("Nissan","Silvia", "Manual", 1, 2, 4, 12, 1, "Gasoline");
-            //String Brand, String model, String shift, int doors, int hp, int cc, int weight, int seats, String fuel, int Price
+        {
+            
         }
         if(jComboBox1.getSelectedIndex() == 1)
         {
-            car = new Car("Opel","Astra", "Manual", 5, 95, 1600, 1400, 5, "Gasoline", 5000);
+            try {
+                car = new Car("Mitsubishi","Lancer EVO X", "Manual", 5, 290, 2000, 1400, 5, "Gasoline", 70000);
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EmptyStringException ex) {
+                java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             Details(car);
         }
         if(jComboBox1.getSelectedIndex() == 2)
         {
-            car = new Car("Nissan","Skyline GT-R", "Manual", 3, 320, 3000, 1600, 2, "Gasoline", 60000);
+            try {
+                car = new Car("Nissan","Skyline GT-R", "Manual", 3, 320, 3000, 1600, 2, "Gasoline", 100000);
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EmptyStringException ex) {
+                java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             Details(car);
         }
         if(jComboBox1.getSelectedIndex() == 3)
         {
-            car = new Car("BMW","M3 E36", "Manual", 3, 240, 2500, 1500, 4, "Gasoline", 10000);
+            try {
+                car = new Car("Nissan","370 Z", "Manual", 3, 240, 3500, 1500, 2, "Gasoline", 80000);
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EmptyStringException ex) {
+                java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            /*
+                icon = new ImageIcon("img/nissan-370z.png");
+                Image img = icon.getImage();
+                Image img2 = img.getScaledInstance(jLabel_Illustration.getWidth(), jLabel_Illustration.getHeight(), Image.SCALE_SMOOTH);
+                icon = new ImageIcon(img2);
+                jLabel_Illustration.setIcon(icon);
+            */
+            Details(car);
+            
+        }
+        if(jComboBox1.getSelectedIndex() == 4)
+        {
+            try {
+                car = new Car("Subaru","Impreza WRX", "Manual", 3, 300, 3000, 1500, 4, "Gasoline", 60000);
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EmptyStringException ex) {
+                java.util.logging.Logger.getLogger(CAFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             Details(car);
             
         }
@@ -329,5 +421,6 @@ public class CAFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel_Illustration;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,8 @@
  */
 package CarAssembly;
 
+import CarAssembly.Exceptions.EmptyStringException;
+import CarAssembly.Exceptions.NegativeException;
 import java.util.Random;
 
 /**
@@ -13,7 +15,7 @@ import java.util.Random;
  */
 public class Car extends CarBase {
     
-    private String Brand;
+    private String brand;
     private String model;
     private int price;
     
@@ -21,8 +23,15 @@ public class Car extends CarBase {
     int low = 100000;
     int high = 999999;
     
-    public Car(String Brand, String model, String shift, int doors, int hp, int cc, int weight, int seats, String fuel, int price) {
-        this.Brand = Brand;
+    public Car(String brand, String model, String shift, int doors, int hp, int cc, int weight, int seats, String fuel, int price) 
+            throws NegativeException, EmptyStringException{
+        if (doors<=0 || hp<=0 || cc<=0 || weight<=0 || seats<=0 || price<=0) {
+            throw new NegativeException("The numbers cannot be negative");
+        }
+        if (brand == "" || model == "" || shift == "" || fuel == "") {
+            throw new EmptyStringException("Strings cannot be empty");
+        }
+        this.brand = brand;
         this.model = model;
         this.shift = shift;
         this.doors = doors;
@@ -48,7 +57,7 @@ public class Car extends CarBase {
     
     @Override
     public String print() {
-        return Brand +" "+ model + " VIN(" + vin + ")"; //To change body of generated methods, choose Tools | Templates.
+        return brand +" "+ model + " VIN(" + vin + ")"; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

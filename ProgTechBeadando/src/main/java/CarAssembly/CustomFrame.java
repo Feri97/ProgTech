@@ -10,6 +10,9 @@ import CarAssembly.Decorators.HeatedSeat;
 import CarAssembly.Decorators.Hp;
 import CarAssembly.Decorators.Rims;
 import CarAssembly.Decorators.WeightReduction;
+import CarAssembly.Exceptions.EmptyStringException;
+import CarAssembly.Exceptions.NegativeException;
+import java.util.logging.Level;
 
 /**
  *
@@ -73,7 +76,7 @@ public class CustomFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(550, 300));
 
-        jComboBoxCar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Opel", "Nissan", "BMW" }));
+        jComboBoxCar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose a car...", "Mitsubishi Lancer EVO  X", "Nissan Skyline GTR", "Nissan 370 Z", "Subaru Impreza WRX" }));
         jComboBoxCar.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxCarItemStateChanged(evt);
@@ -266,23 +269,59 @@ public class CustomFrame extends javax.swing.JFrame {
         //Do any operations you need to do when an item is selected.
     
         if(jComboBoxCar.getSelectedIndex() == 0)
-        {   
-            //car = new Car("Nissan","Silvia", "Manual", 1, 2, 4, 12, 1, "Gasoline");
-            //String Brand, String model, String shift, int doors, int hp, int cc, int weight, int seats, String fuel, int Price
+        {
+            
         }
         if(jComboBoxCar.getSelectedIndex() == 1)
         {
-            car = new Car("Opel","Astra", "Manual", 5, 95, 1600, 1400, 5, "Gasoline", 5000);
+            try {
+                car = new Car("Mitsubishi","Lancer EVO X", "Manual", 5, 290, 2000, 1400, 5, "Gasoline", 70000);
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EmptyStringException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             Details(car);
         }
         if(jComboBoxCar.getSelectedIndex() == 2)
         {
-            car = new Car("Nissan","Skyline GT-R", "Manual", 3, 320, 3000, 1600, 2, "Gasoline", 60000);
+            try {
+                car = new Car("Nissan","Skyline GT-R", "Manual", 3, 320, 3000, 1600, 2, "Gasoline", 100000);
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EmptyStringException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             Details(car);
         }
         if(jComboBoxCar.getSelectedIndex() == 3)
         {
-            car = new Car("BMW","M3 E36", "Manual", 3, 240, 2500, 1500, 4, "Gasoline", 10000);
+            try {
+                car = new Car("Nissan","370 Z", "Manual", 3, 240, 3500, 1500, 2, "Gasoline", 80000);
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EmptyStringException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            /*
+                icon = new ImageIcon("img/nissan-370z.png");
+                Image img = icon.getImage();
+                Image img2 = img.getScaledInstance(jLabel_Illustration.getWidth(), jLabel_Illustration.getHeight(), Image.SCALE_SMOOTH);
+                icon = new ImageIcon(img2);
+                jLabel_Illustration.setIcon(icon);
+            */
+            Details(car);
+            
+        }
+        if(jComboBoxCar.getSelectedIndex() == 4)
+        {
+            try {
+                car = new Car("Subaru","Impreza WRX", "Manual", 3, 300, 3000, 1500, 4, "Gasoline", 60000);
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EmptyStringException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             Details(car);
             
         }
@@ -306,13 +345,25 @@ public class CustomFrame extends javax.swing.JFrame {
     private void jButtonOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrderActionPerformed
         // TODO add your handling code here:
         if(jCheckBoxHp.isSelected()){
-            car = new Hp(car, Integer.parseInt(jComboBoxHp.getItemAt(jComboBoxHp.getSelectedIndex())));
+            try {
+                car = new Hp(car, Integer.parseInt(jComboBoxHp.getItemAt(jComboBoxHp.getSelectedIndex())));
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         if(jCheckBoxWeight.isSelected()){
-            car = new WeightReduction(car, Integer.parseInt(jComboBoxWeight.getItemAt(jComboBoxWeight.getSelectedIndex())));
+            try {
+                car = new WeightReduction(car, Integer.parseInt(jComboBoxWeight.getItemAt(jComboBoxWeight.getSelectedIndex())));
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         if(jCheckBoxRims.isSelected()){
-            car = new Rims(car, Integer.parseInt(jComboBoxRims.getItemAt(jComboBoxRims.getSelectedIndex())));
+            try {
+                car = new Rims(car, Integer.parseInt(jComboBoxRims.getItemAt(jComboBoxRims.getSelectedIndex())));
+            } catch (NegativeException ex) {
+                java.util.logging.Logger.getLogger(CustomFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         if(jCheckBoxHeatedSeat.isSelected()){
             car = new HeatedSeat(car);

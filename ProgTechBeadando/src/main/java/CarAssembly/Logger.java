@@ -35,7 +35,7 @@ public class Logger {
             procurers = new PrintWriter(fwp, true);
         }
         catch (IOException e) {
-            
+            System.out.println(e.getMessage());
         }
     }
     public void logOrder (String car, int price, String firstname, String lastname, String email) {
@@ -48,7 +48,7 @@ public class Logger {
         writer.println(orderid + " New order (" + car + ")"+" price: " + price + "$" + " for: " + parts + " months");
         procurers.println(orderid + " Firstname: " + firstname + " Lastname: " + lastname + " E-mail: " + email);
     }
-    public void logFailure (String order) {
-        writer.println("Failed attempt (" + order + ")");
+    public void logFailure (String order, String msg) {
+        writer.println("Failed attempt (" + order + ")" + msg);
     }
 }

@@ -6,6 +6,7 @@
 package CarAssembly.Decorators;
 
 import CarAssembly.CarBase;
+import CarAssembly.Exceptions.NegativeException;
 import CarAssembly.Extra;
 
 /**
@@ -14,8 +15,11 @@ import CarAssembly.Extra;
  */
 public class Rims extends Extra{
     private int size;
-	public Rims(CarBase car, int size) {
+	public Rims(CarBase car, int size) throws NegativeException {
             super(car);
+            if(size <= 0){
+                throw new NegativeException("Rim size must be a positive number");
+            }
             this.size = size;
         }
         

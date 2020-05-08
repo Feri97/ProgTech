@@ -25,7 +25,9 @@ CarAssembly\CustomFrame$6.class
 CarAssembly\OrderFrame$1.class
 CarAssembly\HomeFrame$4.class
 CarAssembly\OrderFrame.class
+CarAssembly\Exceptions\NegativeException.class
 CarAssembly\Factory\SportFactory.class
+CarAssembly\Exceptions\EmptyStringException.class
 CarAssembly\OrderFrame$2.class
 CarAssembly\CustomFrame$7.class
 CarAssembly\Template\PartialPay.class

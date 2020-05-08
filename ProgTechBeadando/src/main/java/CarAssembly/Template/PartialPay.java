@@ -31,12 +31,17 @@ public class PartialPay extends Order{
     protected void thm()
     {
         price = (int)(price * 1.08 / parts);
+        
     }
     
     @Override
     protected void log()
     {
-        log.logOrderPartialPay(car.print(), price, parts, firstname, lastname, email);
+        try {
+            log.logOrderPartialPay(car.print(), price, parts, firstname, lastname, email);
+        } catch (Exception e) {
+            log.logFailure(car.print() + price + parts + firstname + lastname + email, e.getMessage());
+        }
     }
 
 }

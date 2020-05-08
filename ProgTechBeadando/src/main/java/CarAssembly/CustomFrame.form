@@ -153,11 +153,12 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxCar">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="None"/>
-            <StringItem index="1" value="Opel"/>
-            <StringItem index="2" value="Nissan"/>
-            <StringItem index="3" value="BMW"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Choose a car..."/>
+            <StringItem index="1" value="Mitsubishi Lancer EVO  X"/>
+            <StringItem index="2" value="Nissan Skyline GTR"/>
+            <StringItem index="3" value="Nissan 370 Z"/>
+            <StringItem index="4" value="Subaru Impreza WRX"/>
           </StringArray>
         </Property>
       </Properties>
