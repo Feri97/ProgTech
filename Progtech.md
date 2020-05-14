@@ -19,7 +19,9 @@ ami segitségével a felhasználó igényeinek pontosan megfelelő kocsit rendel
 - Unit teszt:
 	- A unit tesztek a kiegészítő elemek osztályaira készülnek, melyekben az ezen osztályok által végzett feladat végrehajtása kerül tesztelésre. 
 	- A factory-k álltal elkészített extra "csomagok" tesztelése.
+	- A Template metódusok (rendelés) tesztelése 
 	- Logger osztály tesztelése.
+	- Az egyedi kivételek dobásának tesztelése. 
 
 Amennyiben felderítenek egy hibát log bejegyzés készül róla Singleton osztállyal.
 	
